@@ -1,18 +1,20 @@
 import os
 import boto3
 import urllib3
+import http
 import json
 import re
 import logging
 import traceback
 import random
-from datetime import datetime
+import datetime
 from botocore.exceptions import ClientError
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 ids = int(os.environ.get('POST_ID'))
+
 dynamodb = boto3.client('dynamodb')
 
 
@@ -71,7 +73,7 @@ def get_app_password():
 def get_did():
     http = urllib3.PoolManager()
 
-    HANDLE = "vlayusuke.bsky.social"
+    HANDLE = "vlayusuke.net"
     DID_URL = "https://bsky.social/xrpc/com.atproto.identity.resolveHandle"
 
     did_resolve = http.request("GET", DID_URL, fields={"handle": HANDLE})
@@ -101,7 +103,6 @@ def get_api_key(did, app_password):
 
 def post_skeet(did, key, text, url):
     http = urllib3.PoolManager()
-    now = datetime.today()
 
     text = text + "\n\n" + url
 
@@ -129,7 +130,7 @@ def post_skeet(did, key, text, url):
                     }
                 ]
             }],
-            "createdAt": now.strftime("%Y-%m-%dT%H:%M:%S"),
+            "createdAt": datetime.datetime.now(tz=datetime.timezone.utc).replace(tzinfo=None).isoformat(timespec="milliseconds") + "Z",
         }
     }
 
@@ -153,7 +154,6 @@ def find_uri_position(text):
         uri = match.group(0)
         start_position = len(text[:text.index(uri)].encode('utf-8'))
         end_position = start_position + len(uri.encode('utf-8')) - 1
-
         return (uri, start_position, end_position)
     else:
         return None
