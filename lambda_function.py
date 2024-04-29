@@ -1,7 +1,6 @@
 import os
 import boto3
 import urllib3
-import http
 import json
 import re
 import logging
