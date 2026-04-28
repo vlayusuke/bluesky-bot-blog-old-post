@@ -1,0 +1,64 @@
+{
+    "files.insertFinalNewline": true,
+    "editor.formatOnSave": true,
+    "[terraform]": {
+      "editor.defaultFormatter": "hashicorp.terraform",
+      "editor.formatOnSave": true,
+      "editor.formatOnSaveMode": "file"
+    },
+    "[yaml]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2,
+      "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+      },
+      "editor.autoIndent": "full"
+    },
+    "yaml.customTags": [
+      "!And",
+      "!And sequence",
+      "!If",
+      "!If sequence",
+      "!Not",
+      "!Not sequence",
+      "!Equals",
+      "!Equals sequence",
+      "!Or",
+      "!Or sequence",
+      "!FindInMap",
+      "!FindInMap sequence",
+      "!Base64",
+      "!Join",
+      "!Join sequence",
+      "!Cidr",
+      "!Ref",
+      "!Sub",
+      "!Sub sequence",
+      "!GetAtt",
+      "!GetAZs",
+      "!ImportValue",
+      "!ImportValue sequence",
+      "!Select",
+      "!Select sequence",
+      "!Split",
+      "!Split sequence"
+    ],
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "editor.autoIndent": "full",
+    "yaml.format.enable": true,
+    "yaml.trace.server": "verbose",
+    "json.schemas": [
+      {
+        "fileMatch": [
+          "*-cfn-us-east-1.json"
+        ],
+        "url": "https://s3.us-east-1.amazonaws.com/cfn-resource-specifications-us-east-1-prod/schemas/2.15.0/all-spec.json"
+      }
+    ],
+    "yaml.schemas": {
+      "https://s3.amazonaws.com/cfn-resource-specifications-us-east-1-prod/schemas/2.15.0/all-spec.json": "*-us-east-1-cfn.yaml"
+    }
+  }
