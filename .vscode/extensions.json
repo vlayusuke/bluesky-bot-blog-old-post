@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "hashicorp.terraform",
+        "shardulm94.trailing-spaces",
+        "mosapride.zenkaku",
+        "aws-scripting-guy.cform",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "pjmiravalle.terraform-advanced-syntax-highlighting",
+        "matheusq94.tfs",
+        "boto3typed.boto3-ide",
+        "amazonwebservices.aws-toolkit-vscode",
+        "github.copilot",
+        "github.copilot-chat"
+    ]
+}
